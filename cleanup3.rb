@@ -14,7 +14,7 @@ def to_markdown str
   strange_lines = []
   arr.each do |line|
     if line =~ /<\/[a-z]+:[^ >]+>/i
-#      p "rdf tags?"
+#      p "rdf tags?" 因为他们有英文引号这个特殊字符 <someword:otherword>
     elsif line =~ /<\/*table>/i
       r << line
     elsif line =~ /<\/*tr>/i
@@ -38,10 +38,10 @@ def to_markdown str
       header = '- '
       line = line.sub(/^/, header)
       r << remove_tags(line)
-    elsif line =~ /<\/*li_label>/i
-      line = remove_tags(line)
-      header = '- '
-      if line.size > 3 # 如果lable是真是的lable，是一个符号并不含有文字，我们就忽略它 比如只是 * 
+#    elsif line =~ /<\/*li_label>/i
+#      line = remove_tags(line)
+#      header = '- '
+      if line.size > 3 # 如果label是真是的label，是一个符号并不含有文字，我们就忽略它 比如只是 * 
         line = line.sub(/^/, header)
         r << line
       end
