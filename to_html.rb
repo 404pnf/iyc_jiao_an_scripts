@@ -1,6 +1,5 @@
 
 require 'reverse_markdown'
-#require './lib/reverse_markdown' # the gem version is more updated
 
 =begin
 Usage
@@ -12,6 +11,9 @@ Usage
 
 # Example HTML Code for parsing
 example = <<-EOF
+
+<img src='aha.jpg'>
+
 <h2>heading 1.1</h2>
 
 <p>text *italic* and **bold**.</p>
@@ -69,8 +71,8 @@ $input = ARGV[0]
 str = File.read($input)
 r = ReverseMarkdown
 p markdown = r.parse_string(str)
-#p markdown = r.parse_string(example)
-#r.print_errors   
+p markdown = r.parse_string(example)
+r.print_errors   
 # str = add_line_space(to_markdown(File.read($input)))
 File.open('#{input}.md', 'w') do |f|
   f.puts markdown
