@@ -3,6 +3,11 @@ require 'fileutils'
 require 'minitest/autorun'
 
 # usage: script.rb inputfolder outputfolder
+# BUG: /home/WTF/got-me/inputfolder will be renamed to
+#      /home/wtf/got_me/outputfolder
+# !! I don't know how to solve the problem :(
+# I want to run the sanitize function only on inputfolder and its subfolder
+# But how?
 
 $input = File.expand_path(ARGV[0].chomp('/'))
 $output = File.expand_path(ARGV[1].chomp('/'))
@@ -52,6 +57,7 @@ class TestSanitize < MiniTest::Unit::TestCase
     assert_equal "this_is_a_title", sanitize('this is-a title ')
     assert_equal "经常_有_中_文_符_号", sanitize('经常@!有#中$文%&符*（号）')
     assert_equal "开头结尾有很多空格", sanitize('  开头结尾有很多空格   ')
+    assert_equal "/home/WTF/got-me/input_folder", sanitize('  /home/WTF/got-me/input-folder   '), 'FIXME: do not sanitize root folder!'
   end
 
 end
