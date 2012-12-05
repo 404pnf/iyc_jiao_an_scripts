@@ -6,10 +6,39 @@ require 'minitest/autorun'
 
 $input = File.expand_path(ARGV[0].chomp('/'))
 # 我只想对绝对目录的最后一个目录进行sanitize
-# BUG: /home/WTF/got-me/inputfolder will be renamed to
-#      /home/wtf/got_me/outputfolder
 # 我只会用这种笨方法 ^_^
 $char_count_of_higher_path = $input.size
+* 近期消费
+** DONE 化妆品等 $144.34
+Order Number: 111-0441114-3371440
+Recipient: Van Tran, Esq.
+ Clarins Body Treatment Oil, Firming, Toning, 3.4-Ounce Box
+ 2 of The Body Shop Vitamin E Sink-In Moisture Mask, 3.3-Ounce
+ LEGO Walkie Talkies
+ Great Explorations Celestial Super Kits - Wonder Stars Super Kit
+ Hal Leonard Bass Method - Complete Edition: Books 1, 2 and 3 Bound Together in One Easy-to-Use Volume!
+ The Body Shop Vitamin E Moisture Cream, 1.7-Fluid Ounce
+** TODO glw 域名 3年 40美元 +  服务器费用 15美元 没有给我近期托老孟带给我
+** DONE 我的域名续费 86美元
+rijiben.org
+ziyouruanjian.org
+ziyouwenhua.org
+diantai.us
+hcwdxx.com
+tongnian.org
+** DONE 电子表和我的维 生素 132美元
+ 2 of Casio Men's W800H-1AV Classic Digital Sport Watch
+ LIFE Jubilee! Queen Elizabeth II: 60 Years on the Throne
+ Nature Made Prenatal Multi Vitamin Value Size, Tablets, 250-Count
+ New Chapter Perfect Prenatal, 96 Count
+ 2 of Panasonic RPHJE120V In-Ear Headphone, Violet
+ Quikclot Sport Brand Advanced Clotting Sponge ,Stop Bleeding Fast, 50 Gram Package
+** DONE kindle 杂志和电子书 90
+近半年的杂志和十几本书
+** DONE audible 40美元
+
+** DONE lina维生素 68美元  已经给我人民币了 445元
+** 以上共计： 乘以 6.5 合计4045 实际给 4100
 $output = File.expand_path(ARGV[1].chomp('/'))
 def sanitize(title)
   # 不要替换 / 否则路径分割符号也被替换了
