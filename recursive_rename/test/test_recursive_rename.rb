@@ -2,8 +2,6 @@
 require_relative '../lib/sanitize_title.rb'
 require 'minitest/autorun'
 
-$input = 'test'
-$output = 'test'
 class TestSanitize < MiniTest::Unit::TestCase
   INPUT = '/home/WTF/got-me/input'
   SIZE = INPUT.size
